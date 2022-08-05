@@ -6,9 +6,9 @@
 
 引用2:laomms/XiaolzCSharp: 小栗子C# SDK (github.com)
 
-本工程是由Gemini_Yeyu为主力开发.
+本工程是由Gemini_Yeyu 和 TeaBoss共同开发
 
-我只是代发布和修改一部分工程细节.
+我是代发布和修改一部分工程细节.
 
 添加了一个例程
 
