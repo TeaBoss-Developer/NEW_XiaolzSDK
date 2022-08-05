@@ -1,0 +1,9 @@
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\obj\Debug\XiaolzCSharp.csproj.AssemblyReference.cache
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\obj\Debug\XiaolzCSharp.Form1.resources
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\obj\Debug\XiaolzCSharp.Properties.Resources.resources
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\obj\Debug\XiaolzCSharp.csproj.GenerateResource.cache
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\obj\Debug\XiaolzCSharp.csproj.CoreCompileInputs.cache
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\bin\Debug\XiaolzCSharp.dll
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\bin\Debug\XiaolzCSharp.pdb
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\obj\Debug\XiaolzCSharp.dll
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\obj\Debug\XiaolzCSharp.pdb

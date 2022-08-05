@@ -1,0 +1,17 @@
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\bin\Release\XiaolzCSharp.dll
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\bin\Release\XiaolzCSharp.pdb
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\obj\Release\XiaolzCSharp.csproj.AssemblyReference.cache
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\obj\Release\XiaolzCSharp.Form1.resources
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\obj\Release\XiaolzCSharp.Properties.Resources.resources
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\obj\Release\XiaolzCSharp.csproj.GenerateResource.cache
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\obj\Release\XiaolzCSharp.csproj.CoreCompileInputs.cache
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\obj\Release\XiaolzCSharp.dll
+D:\C#\RainNightProject\XiaolzCSharp-master\XiaolzCSharp\obj\Release\XiaolzCSharp.pdb
+C:\Users\14351\Desktop\XLZSDK\XiaolzCSharp\obj\Release\XiaolzCSharp.csproj.AssemblyReference.cache
+C:\Users\14351\Desktop\XLZSDK\XiaolzCSharp\obj\Release\XiaolzCSharp.Properties.Resources.resources
+C:\Users\14351\Desktop\XLZSDK\XiaolzCSharp\obj\Release\XiaolzCSharp.csproj.GenerateResource.cache
+C:\Users\14351\Desktop\XLZSDK\XiaolzCSharp\obj\Release\XiaolzCSharp.csproj.CoreCompileInputs.cache
+C:\Users\14351\Desktop\XLZSDK\XiaolzCSharp\obj\Release\XiaolzCSharp.dll
+C:\Users\14351\Desktop\XLZSDK\XiaolzCSharp\obj\Release\XiaolzCSharp.pdb
+C:\Users\14351\Desktop\XLZSDK\XiaolzCSharp\bin\Release\XiaolzCSharp.dll
+C:\Users\14351\Desktop\XLZSDK\XiaolzCSharp\bin\Release\XiaolzCSharp.pdb
