@@ -645,8 +645,9 @@ namespace XiaolzCSharp
 		#endregion
 		#region 函数委托指针
 		//输出日志
+		public static OutputLogDelegate OutputLog = null;
 		[UnmanagedFunctionPointer(CallingConvention.Winapi, CharSet = CharSet.Ansi)]
-		public delegate IntPtr OutputLog(string pkey, [MarshalAs(UnmanagedType.LPStr)] string message, int text_color, int background_color);
+		public delegate IntPtr OutputLogDelegate(string pkey, [MarshalAs(UnmanagedType.LPStr)] string message, int text_color, int background_color);
 		//发送好友消息
 		public static SendPrivateMsgDelegate SendPrivateMsg = null;
 		[UnmanagedFunctionPointer(CallingConvention.Winapi, CharSet = CharSet.Ansi)]
