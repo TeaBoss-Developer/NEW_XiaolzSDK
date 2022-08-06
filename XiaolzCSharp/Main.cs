@@ -26,6 +26,8 @@ namespace XiaolzCSharp
 		public delegate int RecvicePrivateMsg(ref PrivateMessageEvent sMsg);
 		public static int RecvicetPrivateMessage(ref PrivateMessageEvent sMsg)
 		{
+			PInvoke.RobotQQ = sMsg.ThisQQ;
+			API.OutputLog(plugin_key, sMsg.MessageContent, 65280, 16711680);
 			return 0;
 		}
 		#endregion

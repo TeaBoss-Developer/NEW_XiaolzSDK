@@ -52,9 +52,9 @@ namespace XiaolzCSharp
 			App_Info.data = (new JavaScriptSerializer()).Deserialize<object>(resultJson);
 
 			App_Info.sdkv = "2.8.7.5";
-			App_Info.appname = "群管理";
-			App_Info.author = "VAPE";
-			App_Info.describe = "群管插件";
+			App_Info.appname = "C#TestDemo";
+			App_Info.author = "TeaBoss";
+			App_Info.describe = "一个小Demo";
 			App_Info.appv = "1.0.0";
 			GC.KeepAlive(appEnableFunc);
 			App_Info.useproaddres = Marshal.GetFunctionPointerForDelegate(appEnableFunc).ToInt64();
@@ -171,7 +171,7 @@ namespace XiaolzCSharp
 		public delegate void DelegateAppSetting();
 		public static void AppSetting()
 		{
-			
+			System.Windows.Forms.MessageBox.Show("打开菜单");
 		}
 		#endregion
 		#region 插件事件
@@ -263,6 +263,7 @@ namespace XiaolzCSharp
 		{
 			Bitmap bitmap = new Bitmap(picpath);
 			byte[] picture = GetByteArrayByImage(bitmap);
+			bitmap.Dispose();
 			IntPtr piccode = UploadFriendImage(PInvoke.plugin_key, thisQQ, friendQQ, is_flash, picture, picture.Length);
 			long MessageRandom = 0;
 			uint MessageReq = 0;
@@ -295,6 +296,7 @@ namespace XiaolzCSharp
 		{
 			Bitmap bitmap = new Bitmap(picpath);
 			byte[] picture = GetByteArrayByImage(bitmap);
+			bitmap.Dispose();
 			IntPtr piccode = UploadGroupImage(PInvoke.plugin_key, thisQQ, groupQQ, is_flash, picture, picture.Length);
 			IntPtr res=SendGroupMsg(PInvoke.plugin_key, thisQQ, groupQQ, Marshal.PtrToStringAnsi(piccode), false);
 			return Marshal.PtrToStringAnsi(res);
@@ -533,6 +535,9 @@ namespace XiaolzCSharp
 			RestartDelegate ReStartAPI = (RestartDelegate)Marshal.GetDelegateForFunctionPointer(new IntPtr(json["框架重启"]), typeof(RestartDelegate));
 			restart = ReStartAPI;
 			GC.KeepAlive(restart);
+			OutputLogDelegate OutputLogAPI = (OutputLogDelegate)Marshal.GetDelegateForFunctionPointer(new IntPtr(json["输出日志"]), typeof(OutputLogDelegate));
+			OutputLog = OutputLogAPI;
+			GC.KeepAlive(OutputLogAPI);
 			GetLoginQQDelegate GetLoginQQAPI = (GetLoginQQDelegate)Marshal.GetDelegateForFunctionPointer(new IntPtr(json["取框架QQ"]), typeof(GetLoginQQDelegate));
 			GetLoginQQ = GetLoginQQAPI;
 			GC.KeepAlive(GetLoginQQ);
