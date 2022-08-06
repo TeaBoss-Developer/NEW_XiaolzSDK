@@ -51,11 +51,11 @@ namespace XiaolzCSharp
 			var App_Info = new PInvoke.AppInfo();
 			App_Info.data = (new JavaScriptSerializer()).Deserialize<object>(resultJson);
 
-			App_Info.sdkv = "2.8.7.5";
-			App_Info.appname = "C#TestDemo";
-			App_Info.author = "TeaBoss";
-			App_Info.describe = "一个小Demo";
-			App_Info.appv = "1.0.0";
+			App_Info.sdkv = "2.8.7.5";//SDK版本
+			App_Info.appname = "C#TestDemo";//插件名
+			App_Info.author = "TeaBoss";//作者
+			App_Info.describe = "一个小Demo";//介绍
+			App_Info.appv = "1.0.0";//插件版本
 			GC.KeepAlive(appEnableFunc);
 			App_Info.useproaddres = Marshal.GetFunctionPointerForDelegate(appEnableFunc).ToInt64();
 			GC.KeepAlive(AppDisabledEvent);
@@ -166,7 +166,7 @@ namespace XiaolzCSharp
 			return "";
 		}
 		#endregion
-		#region 插件设置
+		#region 插件打开菜单
 		public static DelegateAppSetting AppSettingEvent = new DelegateAppSetting(AppSetting);
 		public delegate void DelegateAppSetting();
 		public static void AppSetting()
@@ -250,7 +250,7 @@ namespace XiaolzCSharp
 					Console.WriteLine("群事件_禁止上传相册");
 					break;
 				case PInvoke.EventTypeEnum.Group_MemberKickOut:
-					API.SendGroupMsg(PInvoke.plugin_key, EvenType.ThisQQ, EvenType.SourceGroupQQ, "你已被提出了群:" + EvenType.SourceGroupName + "(" + EvenType.SourceGroupQQ.ToString() + ")", false);
+					API.SendGroupMsg(PInvoke.plugin_key, EvenType.ThisQQ, EvenType.SourceGroupQQ, "你已被踢出了群:" + EvenType.SourceGroupName + "(" + EvenType.SourceGroupQQ.ToString() + ")", false);
 					break;
 				default:
 					Console.WriteLine(EvenType.EventType.ToString());
@@ -259,6 +259,9 @@ namespace XiaolzCSharp
 		}
 		#endregion
 		#region 发送好友图片
+		/// <summary>
+		/// 直接按照路径发送图片,无需读入文件.
+		/// </summary>
 		public string SendFriendImage(long thisQQ, long friendQQ, string picpath, bool is_flash)
 		{
 			Bitmap bitmap = new Bitmap(picpath);
@@ -270,6 +273,9 @@ namespace XiaolzCSharp
 			IntPtr res= SendPrivateMsg(PInvoke.plugin_key, thisQQ, friendQQ, Marshal.PtrToStringAnsi(piccode), ref MessageRandom, ref MessageReq);
 			return Marshal.PtrToStringAnsi(res);
 		}
+		/// <summary>
+		/// 读取图片所有比特并保存到数组.
+		/// </summary>
 		public static byte[] GetByteArrayByImage(Bitmap bitmap)
 		{
 			byte[] result = null;
@@ -292,6 +298,9 @@ namespace XiaolzCSharp
 
 		#endregion
 		#region 发送群图片
+		/// <summary>
+		/// 直接按照路径发送图片,无需读入文件.
+		/// </summary>
 		public string SendGroupImage(long thisQQ, long groupQQ, string picpath, bool is_flash)
 		{
 			Bitmap bitmap = new Bitmap(picpath);
@@ -303,6 +312,9 @@ namespace XiaolzCSharp
 		}
 		#endregion
 		#region 获取图片地址		
+		/// <summary>
+		/// 通过图片的GUID获取图片下载链接.
+		/// </summary>
 		public static string GetImageLink(long thisQQ, long sendQQ, long groupQQ, string ImgGuid)
 		{
 			var ImgUrl = GetImageDownloadLink(PInvoke.plugin_key, ImgGuid, thisQQ, groupQQ);
@@ -320,6 +332,9 @@ namespace XiaolzCSharp
 		}
 		#endregion
 		#region 取好友列表		
+		/// <summary>
+		/// 取好友的列表
+		/// </summary>
 		public static int GetFriendLists(long thisQQ, long sendQQ)
 		{
 			PInvoke.DataArray[] ptrArray = new PInvoke.DataArray[2];
@@ -650,22 +665,33 @@ namespace XiaolzCSharp
 		#endregion
 		#region 函数委托指针
 		//输出日志
+		/// <summary>
+		/// 输出日志 参数:(插件Key,日志内容,颜色(易语言内的颜色整数),背景颜色(同上)).
+		/// </summary>
 		public static OutputLogDelegate OutputLog = null;
 		[UnmanagedFunctionPointer(CallingConvention.Winapi, CharSet = CharSet.Ansi)]
 		public delegate IntPtr OutputLogDelegate(string pkey, [MarshalAs(UnmanagedType.LPStr)] string message, int text_color, int background_color);
-		//发送好友消息
+		/// <summary>
+		/// 发送好友消息 参数:(插件Key,框架QQ,要被发送消息QQ,内容,(返回)消息RandomID,(返回)消息ReQ)
+		/// </summary>
 		public static SendPrivateMsgDelegate SendPrivateMsg = null;
 		[UnmanagedFunctionPointer(CallingConvention.Winapi, CharSet = CharSet.Ansi)]
 		public delegate IntPtr SendPrivateMsgDelegate(string pkey, long ThisQQ, long SenderQQ, [MarshalAs(UnmanagedType.LPStr)] string MessageContent, ref long MessageRandom, ref uint MessageReq);
-		//发送群消息
+		/// <summary>
+		/// 发送群消息 参数:(插件Key,框架QQ,群号,内容,是否匿名)
+		/// </summary>
 		public static SendGroupMsgDelegate SendGroupMsg = null;
 		[UnmanagedFunctionPointer(CallingConvention.Winapi, CharSet = CharSet.Ansi)]
 		public delegate IntPtr SendGroupMsgDelegate(string pkey, long thisQQ, long groupQQ, [MarshalAs(UnmanagedType.LPStr)] string msgcontent, bool anonymous);
-		//撤回私人消息
+		/// <summary>
+		/// 撤回好友消息 参数:(插件Key,框架QQ,对面QQ,消息随机码(RandomID),消息的ReQ,时间)
+		/// </summary>
 		public static PrivateUndoDelegate Undo_PrivateEvent = null;
 		[UnmanagedFunctionPointer(CallingConvention.Winapi, CharSet = CharSet.Ansi)]
 		public delegate bool PrivateUndoDelegate(string pkey, long thisQQ, long otherQQ, long message_random, int message_req, int time);
-		//撤回群消息
+		/// <summary>
+		/// 撤回群消息 参数:(插件Key,框架QQ,群号,内容,(返回)消息RandomID,(返回)消息ReQ)
+		/// </summary>
 		public static UndoGroupDelegate Undo_GroupEvent = null;
 		[UnmanagedFunctionPointer(CallingConvention.Winapi, CharSet = CharSet.Ansi)]
 		public delegate bool UndoGroupDelegate(string pkey, long thisQQ, long groupQQ, long message_random, int message_req);
